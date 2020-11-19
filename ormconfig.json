@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "host": "192.168.2.150",
-  "port": 8152,
+  "host": "localhost",
+  "port": 5432,
   "username": "postgres",
-  "password": "d@t@box1825",
-  "database": "RECUPERASUL",
+  "password": "docker",
+  "database": "gostack_gobarber",
   "entities": [
     "./src/models/*.ts"
   ],
