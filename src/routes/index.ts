@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import appointmentsRouter from './appointments.routes';
 import sessionsRouter from './sessions.routes';
-import usersRouter from './users.routes';
+import areaConfigRouter from './areaconfig.routes';
+import funcionarioRouter from './funcionario.routes';
 
 const routes = Router();
 
-routes.use('/appointments', appointmentsRouter);
-routes.use('/users', usersRouter);
 routes.use('/sessions', sessionsRouter);
+routes.use('/areaconfig', areaConfigRouter);
+routes.use('/funcionario', funcionarioRouter);
 
 export default routes;

@@ -13,7 +13,7 @@ import User from './User';
 @Entity('appointments')
 class Appointment {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: number;
 
   @Column()
   provider_id: string;

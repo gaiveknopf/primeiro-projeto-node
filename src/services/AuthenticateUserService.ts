@@ -8,7 +8,7 @@ import AppError from '../errors/AppError';
 import User from '../models/User';
 
 interface Request {
-  email: string;
+  name: string;
   password: string;
 }
 
@@ -18,28 +18,21 @@ interface Response {
 }
 
 class AuthenticateUserService {
-  public async execute({ email, password }: Request): Promise<Response> {
+  public async execute({ name, password }: Request): Promise<Response> {
     const usersRepository = getRepository(User);
-
-    const user = await usersRepository.findOne({ where: { email } });
+    const user = await usersRepository.findOne({
+      where: { usu_nome: name, usu_senha: password },
+    });
 
     if (!user) {
       throw new AppError('Incorrect email/password combination.', 401);
     }
 
-    const passwordMatched = await compare(password, user.password);
-
-    if (!passwordMatched) {
-      throw new AppError('Incorrect email/password combination.', 401);
-    }
-
     const { secret, expiresIn } = authConfig.jwt;
-
     const token = sign({}, secret, {
-      subject: user.id,
+      subject: user.usu_nome,
       expiresIn: expiresIn,
     });
-
     return {
       user,
       token,

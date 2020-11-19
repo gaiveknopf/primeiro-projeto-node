@@ -1,33 +1,19 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
+  PrimaryColumn,
 } from 'typeorm';
 
-@Entity('users')
+@Entity('cad_usuario')
 class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryColumn()
+  usu_codigo: string;
 
   @Column()
-  name: string;
+  usu_nome: string;
 
   @Column()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Column()
-  avatar: string;
-
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
+  usu_senha: string;
 }
 
 export default User;
