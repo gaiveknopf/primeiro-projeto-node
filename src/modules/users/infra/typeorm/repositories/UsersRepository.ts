@@ -30,7 +30,6 @@ class UsersRepository implements IUsersRepository {
   }: IFindAllProvidersDTO): Promise<User[]> {
     let users: User[];
 
-    console.log(except_user_id);
     if (except_user_id) {
       users = await this.ormRepository.find({
         where: {
@@ -38,7 +37,6 @@ class UsersRepository implements IUsersRepository {
         },
       });
     } else {
-      console.log('TODOS');
       users = await this.ormRepository.find();
     }
 
