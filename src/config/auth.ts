@@ -1,6 +1,8 @@
+import { predicateAwareClassFactory } from 'tsyringe';
+
 export default {
   jwt: {
-    secret: 'd827c409a0d1f3a322deb8e822630815',
+    secret: process.env.APP_SECRET,
     expiresIn: '1d',
   },
 };
