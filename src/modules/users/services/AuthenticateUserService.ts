@@ -29,8 +29,6 @@ class AuthenticateUserService {
   ) {}
 
   public async execute({ email, password }: Request): Promise<Response> {
-    console.log('passou aqui tambem');
-
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
@@ -52,9 +50,6 @@ class AuthenticateUserService {
       subject: user.id,
       expiresIn: expiresIn,
     });
-
-    console.log('usuario: ', user);
-    console.log('token: ', token);
 
     return {
       user,
