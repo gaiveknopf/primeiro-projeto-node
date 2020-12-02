@@ -12,7 +12,7 @@ const redisClient = redis.createClient({
 const limiter = new RateLimiterRedis({
   storeClient: redisClient,
   keyPrefix: 'rateLimit',
-  points: 5, // 10 requests
+  points: 10, // 10 requests
   duration: 1, // per 1 second by IP
 });
 
