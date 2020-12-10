@@ -14,7 +14,7 @@ import routes from './routes';
 import '@shared/infra/typeorm';
 import '@shared/container';
 
-const port = 3333;
+const port = 3334;
 const app = express();
 
 app.use(cors());
