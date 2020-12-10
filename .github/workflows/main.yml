@@ -33,7 +33,7 @@ jobs:
           source: ".,!node_modules"
           target: "~/app/gobarber-backend"
       
-      - name: Install dependencies on AWS
+      - name: Run production scripts
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -43,15 +43,6 @@ jobs:
           script: | 
               cd ~/app/gobarber-backend
               yarn
-          
-      - name: Run migrations on AWS
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script: | 
               cd ~/app/gobarber-backend           
                ./node_modules/.bin/typeorm migration:run 
                
