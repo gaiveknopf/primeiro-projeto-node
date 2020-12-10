@@ -42,5 +42,5 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 });
 
 app.listen(port, () => {
-  console.log(` ⭐ Server started on port ${port}`);
+  console.log(`Server started on port ${port}`);
 });
